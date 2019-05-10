@@ -31,6 +31,7 @@ public class PaintPanel extends JPanel {
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		repaint();
 		for (int i = 0; i < pointCount; i++) {
 			g.setColor(this.color);
 			g.fillOval(points[i].x, points[i].y, number1, number2);
@@ -53,12 +54,18 @@ public class PaintPanel extends JPanel {
 		}
 	}
 	
-	public void okButton(Color color) {
+	public void colorButton(Color color) {
 		this.color = color;
 	}
 	
 	public void eraseButton() {
 		this.pointCount = 0;
 	}
-	
+	public void paintComponent2(Graphics g) {
+		super.paintComponent(g);
+		for (int i = 0; i < pointCount; i++) {
+			g.setColor(this.color);
+			g.fillOval(points[i].x, points[i].y, number1, number2);
+		}
+	}
 }
