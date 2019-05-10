@@ -33,6 +33,7 @@ public class ShowColors2JFrame extends JFrame {
 		PaintPanel paintPanel = new PaintPanel();
 		paintPanel.setBackground(Color.WHITE);
 		
+		
 		ButtonsNorth = new JPanel();
 		ButtonsNorth.setBackground(color);
 		plusJButton = new JButton("+");
@@ -78,9 +79,7 @@ public class ShowColors2JFrame extends JFrame {
 				color = JColorChooser.showDialog(ShowColors2JFrame.this, "Escolhe uma cor", color); 
 				if (color == null) 
 					color = Color.LIGHT_GRAY;
-					colorJPanel.setBackground(color);
-					ButtonsWest.setBackground(color);
-					ButtonsNorth.setBackground(color);
+					paintPanel.colorButton(color);
 				} 
 			} 
 		);
@@ -90,7 +89,9 @@ public class ShowColors2JFrame extends JFrame {
 				new ActionListener() { 
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
-					paintPanel.okButton(color);
+					colorJPanel.setBackground(color);
+					ButtonsWest.setBackground(color);
+					ButtonsNorth.setBackground(color);
 					}
 				}
 			);
